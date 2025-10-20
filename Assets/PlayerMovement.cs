@@ -1,5 +1,6 @@
 using UnityEngine;
 
-public class PlayerController4Direction : MonoBehaviour {
+public class SimplePlayerController : MonoBehaviour
+{
     
 }
