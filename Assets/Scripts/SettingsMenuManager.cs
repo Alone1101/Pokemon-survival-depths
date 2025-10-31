@@ -31,13 +31,13 @@ public class SettingsManager : MonoBehaviour
         }
     }
     
-    /*public void OnMusicVolumeChanged(float value)
+    public void OnMusicVolumeChanged(float value)
     {
         if (AudioManager.Instance != null)
         {
             AudioManager.Instance.SetMusicVolume(value);
         }
-    }*/
+    }
     
     public void OnSFXVolumeChanged(float value)
     {
@@ -56,21 +56,5 @@ public class SettingsManager : MonoBehaviour
         if (masterVolumeSlider != null) masterVolumeSlider.value = masterVolume;
         if (musicVolumeSlider != null) musicVolumeSlider.value = musicVolume;
         if (sfxVolumeSlider != null) sfxVolumeSlider.value = sfxVolume;
-    }
-
-    public void OnMusicVolumeChanged(float value)
-    {
-        Debug.Log("Music slider changed to: " + value);
-        
-        if (AudioManager.Instance != null)
-        {
-            Debug.Log("AudioManager found! Current music volume: " + AudioManager.Instance.musicSource.volume);
-            AudioManager.Instance.SetMusicVolume(value);
-            Debug.Log("After setting - music volume: " + AudioManager.Instance.musicSource.volume);
-        }
-        else
-        {
-            Debug.LogError("AudioManager.Instance is NULL!");
-        }
     }
 }
