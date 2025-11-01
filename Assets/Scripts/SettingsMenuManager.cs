@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class SettingsManager : MonoBehaviour
 {
-
     [Header("Volume Sliders")]
     public Slider masterVolumeSlider;
     public Slider musicVolumeSlider;
@@ -19,7 +18,20 @@ public class SettingsManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
+            PlaySelectSound();
             SceneManager.LoadScene(1);
+        }
+    }
+
+    void PlaySelectSound()
+    {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySelectSound();
+        }
+        else
+        {
+            Debug.LogWarning("AudioManager Instance is null!");
         }
     }
 

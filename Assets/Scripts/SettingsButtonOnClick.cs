@@ -5,7 +5,19 @@ public class SettingsButtonOnClick : MonoBehaviour
 {  
     public void OnSettingsButton()
     {
-        Debug.Log("Loading Settings Menu...");
+        PlaySelectSound();
         SceneManager.LoadScene(2);
+    }
+
+    void PlaySelectSound()
+    {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySelectSound();
+        }
+        else
+        {
+            Debug.LogWarning("AudioManager Instance is null!");
+        }
     }
 }

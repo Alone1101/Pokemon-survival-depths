@@ -11,6 +11,7 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Clips")]
     public AudioClip mainMenuMusic;
     public AudioClip gameMusic;
+    public AudioClip selectSound;
     
     void Awake()
     {
@@ -27,8 +28,16 @@ public class AudioManager : MonoBehaviour
     
     void Start()
     {
+        ResetToDefaultVolumes();
         LoadVolumeSettings();
         PlayMainMenuMusic();
+    }
+
+    void ResetToDefaultVolumes()
+    {
+        PlayerPrefs.DeleteKey("MasterVolume");
+        PlayerPrefs.DeleteKey("MusicVolume");
+        PlayerPrefs.DeleteKey("SFXVolume");
     }
     
     public void PlayMainMenuMusic()
@@ -48,6 +57,14 @@ public class AudioManager : MonoBehaviour
             musicSource.clip = gameMusic;
             musicSource.loop = true;
             musicSource.Play();
+        }
+    }
+
+    public void PlaySelectSound()
+    {
+        if (sfxSource != null && selectSound != null)
+        {
+            sfxSource.PlayOneShot(selectSound, 1.5f);
         }
     }
     
